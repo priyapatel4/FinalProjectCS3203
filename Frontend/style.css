@@ -12,6 +12,10 @@ body.home {
     font-family: sans-serif;
 }
 
+body.about {
+    color: black;
+}
+
 body.owner {
 
 }
@@ -40,6 +44,10 @@ body.owner {
 {
     text-decoration: none;
     color: #fff;
+}
+ul li a{
+    display: block;
+    text-decoration: none;
 }
 
 .active, .menu-bar ul li:hover 
