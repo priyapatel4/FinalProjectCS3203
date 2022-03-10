@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 body.home {
@@ -9,15 +10,7 @@ body.home {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center top !important;
-    font-family: sans-serif;
 }
-
-body.about {
-    color: black;
-
-}
-
-
 
 .menu-bar
 {
@@ -44,15 +37,27 @@ body.about {
     text-decoration: none;
     color: #fff;
 }
-ul li a{
-    display: block;
-    text-decoration: none;
-}
-
-
 
 .active, .menu-bar ul li:hover 
 {
     background: #6a564c;
     border-radius: 3px;
 }
+
+.option-button {
+    padding-top: 50px;
+    text-align: center;
+}
+
+.button {
+    background-color: #9d8a7f;
+    border: none;
+    color: white;
+    padding:15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
