@@ -14,11 +14,10 @@ body.home {
 
 body.about {
     color: black;
-}
-
-body.owner {
 
 }
+
+
 
 .menu-bar
 {
@@ -49,6 +48,8 @@ ul li a{
     display: block;
     text-decoration: none;
 }
+
+
 
 .active, .menu-bar ul li:hover 
 {
