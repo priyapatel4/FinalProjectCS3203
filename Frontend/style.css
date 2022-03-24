@@ -12,34 +12,29 @@ body.home {
     background-position: center top !important;
 }
 
-.menu-bar
-{
+.menu-bar {
     background: #9d8a7f;
     text-align: center;
 }
 
-.menu-bar ul
-{
+.menu-bar ul {
     display: inline-flex;
     list-style: none;
     color: #fff;
 }
 
-.menu-bar ul li
-{
+.menu-bar ul li {
     width: 120px;
     margin: 15px;
     padding: 15px;
 }
 
-.menu-bar ul li a
-{
+.menu-bar ul li a {
     text-decoration: none;
     color: #fff;
 }
 
-.active, .menu-bar ul li:hover 
-{
+.active, .menu-bar ul li:hover {
     background: #6a564c;
     border-radius: 3px;
 }
@@ -47,20 +42,36 @@ body.home {
 .option-button {
     padding-top: 50px;
     text-align: center;
+    padding-bottom: 50px;
 }
 
 .button {
     background-color: #9d8a7f;
     border: none;
     color: white;
-    padding:15px;
+    padding: 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    border-radius: 4px;
+    border-radius: 3px;
 }
 
-.button:hover {
-    background: #6a564c;
+    .button:hover {
+        background: #6a564c;
+    }
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 75%;
+    border: 1px solid #ddd;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+th, td {
+    text-align: left;
+    padding: 8px;
 }

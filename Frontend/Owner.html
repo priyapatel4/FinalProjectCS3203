@@ -4,6 +4,7 @@
 <head>
     <title>Owner</title>
     <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
 </head>
 
 <body class="owner">
@@ -11,16 +12,37 @@
         <ul>
             <li><a href="Home.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li class="active"><a href="#">Owner</a></li>
+            <li class="active"><a href="Owner.html">Owner</a></li>
         </ul>
     </div>
 
     <div class="option-button">
-        <ul>
-            <button class="button">Show Menu</button>
-            <button class="button">Update Menu</button>
-            <button class="button">Filter Menu</button>
-        </ul>
+        <button class="button" id="showButton" onclick="show()">Show Menu</button>
+        <button class="button" id="updateButton" onclick="update()">Update Menu</button>
+        <button class="button">Filter Menu</button>
+    </div>
+
+    <div style="overflow-x:auto;">
+        <table id="displayTable" style="display:none">
+            <tr>
+                <th>No.</th>
+                <th>Item Image</th>
+                <th>Item Name</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Price</th>
+            </tr>
+        </table>
+        <table id="updateTable" style="display:none">
+            <tr>
+                <th>No.</th>
+                <th>Item Image</th>
+                <th>Item Name</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Price</th>
+            </tr>
+        </table>
     </div>
 </body>
 </html>
