@@ -1,6 +1,6 @@
 $(function() {
     // GET/READ
-    $('#get-tweets-button').on('click', function() {//this sets up the function in response to clicking the button to get all tweets
+    $('#showButton').on('click', function() {//this sets up the function in response to clicking the button to get all tweets
         $.ajax({
             type:'GET',
             url: 'getinfo',// sets up the pathway to the server
