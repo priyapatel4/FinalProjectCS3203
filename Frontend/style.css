@@ -61,3 +61,6 @@ body.home {
     border-radius: 4px;
 }
 
+.button:hover {
+    background: #6a564c;
+}
