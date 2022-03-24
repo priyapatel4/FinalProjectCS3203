@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var PORT = process.env.PORT || 3000;
 const fs = require('fs');//sets us the fs for the parsing functions
 
-
+var menuItems = []
 
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
