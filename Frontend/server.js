@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var PORT = process.env.PORT || 3000;
 const fs = require('fs');//sets us the fs for the parsing functions
 
-
+var menuItems = []
 
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
@@ -15,4 +15,3 @@ app.get('/getinfo', function(req, res) {});
 app.listen(PORT, function() {
     console.log('Server listening on ' + PORT);
 });
-console.log("server running on port 3000");// lets the user know on the console that the server is running.
