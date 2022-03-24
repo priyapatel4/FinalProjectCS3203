@@ -10,4 +10,4 @@ const fs = require('fs');//sets us the fs for the parsing functions
 
 
 app.listen(3000);// sends the application to the web port 3000
-console.log("server running on port 3000");// lets the user know on the console that the server is running. 
+console.log("server running on port 3000");// lets the user know on the console that the server is running.
