@@ -1,12 +1,12 @@
 $(function() {
-    // GET/READ
-    // $('#showButton').on('click', function() {//this sets up the function in response to clicking the button to get all tweets
-    //     $.ajax({
-    //         type:'GET',
-    //         url: 'getinfo',// sets up the pathway to the server
-    //         contentType: 'application/json',
+     GET/READ
+     $('#showButton').on('click', function() {//this sets up the function in response to clicking the button to get all tweets
+         $.ajax({
+             type:'GET',
+     //        url: 'getinfo',// sets up the pathway to the server
+      //       contentType: 'application/json',
     //         success: function(response) {//gets the response form the pathway if successful
-    //
+    //npm
     //             //console.log(response);
     //             var tbodyEl = $('tbody');
     //
@@ -30,8 +30,8 @@ $(function() {
     //                     </tr>\
     //                 ');
     //             });
-    //          }
-    //      });
+              }
+          });
         
     });
 
@@ -48,4 +48,4 @@ $(function() {
 
 
 
-});
+

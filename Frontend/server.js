@@ -15,4 +15,3 @@ app.get('/getinfo', function(req, res) {});
 app.listen(PORT, function() {
     console.log('Server listening on ' + PORT);
 });
-console.log("server running on port 3000");// lets the user know on the console that the server is running.
