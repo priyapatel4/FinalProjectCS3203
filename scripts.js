@@ -1,21 +1,22 @@
-
 $(function() {
     // GET/READ
-     $('#get-button').on('click', function() {//this sets up the function in response to clicking the button to get all tweets
-         document.getElementById("displayTable").style.display = "";
-         $.ajax({
-             type:'GET',
-             url: '/getinfo',// sets up the pathway to the server
-             contentType: 'application/json',
-             success: function(response) {//gets the response form the pathway if successful
+    $('#get-button').on('click', function () {//this sets up the function in response to clicking the button to get all tweets
+        document.getElementById("input").style.display = "none";
+        document.getElementById("saveButton").style.display = "none";
+        document.getElementById("displayTable").style.display = "";
+        $.ajax({
+            type:'GET',
+            url: '/getinfo',// sets up the pathway to the server
+            contentType: 'application/json',
+            success: function(response) {//gets the response form the pathway if successful
 
-                 console.log(response);
-                 let tbodyEl = $('#namebody');
+                console.log(response);
+                let tbodyEl = $('#namebody');
 
-                 tbodyEl.html('');
+                tbodyEl.html('');
 
 
-                 var number = 0;
+                var number = 0;
                 response.items.forEach(function(element) {// would output the id, time created, name of the person tweeting and the tweet. also adds an update and delete button to delete or update the tweet
                     number = number +1;
                     tbodyEl.append('\
@@ -32,14 +33,18 @@ $(function() {
                         </tr>\
                     ');
                 });
-             }
-         });
+            }
+        });
 
-     });
+    });
 
+    $('#addButton').on('click', function () {
+        document.getElementById("displayTable").style.display = "none";
+        document.getElementById("input").style.display = "";
+        document.getElementById("saveButton").style.display = "";
+    });
 
+    $('#saveButton').on('click', function () {
 
-
-   
+    });
 });
-
