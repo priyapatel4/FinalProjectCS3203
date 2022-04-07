@@ -1,15 +1,11 @@
-[
-  {
-    "item_name": "sandwhich",
+[{
+    "item_name": "sandwich",
     "item_description": "two bread",
     "item_category": "appetizer",
     "item_price": 45
-  },
-  {
+}, {
     "item_name": "ice cream",
     "item_description": "sweet",
     "item_category": "dessert",
     "item_price": 5
-  }
-
-]
+  }]
