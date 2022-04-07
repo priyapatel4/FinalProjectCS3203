@@ -26,8 +26,8 @@ $(function() {
                              <td><input type="text" class="name form-control" value="' + element.category +'"></td>\
                             \<td><input type="text" class="name form-control" value="' + element.price +'"></td>\
                             <td>\
-                                <button class="update-button">UPDATE</button>\
-                                <button class="delete-button">DELETE</button>\
+                                <button class = "button" id ="update-button">UPDATE</button>\
+                                <button class = "button" id ="delete-button">DELETE</button>\
                             </td>\
                         </tr>\
                     ');
