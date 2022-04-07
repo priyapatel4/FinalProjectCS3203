@@ -1,7 +1,9 @@
 
 $(function() {
     // GET/READ
-     $('#get-button').on('click', function() {//this sets up the function in response to clicking the button to get all tweets
+    $('#get-button').on('click', function () {//this sets up the function in response to clicking the button to get all tweets
+         document.getElementById("input").style.display = "none";
+         document.getElementById("saveButton").style.display = "none";
          document.getElementById("displayTable").style.display = "";
          $.ajax({
              type:'GET',
@@ -36,5 +38,15 @@ $(function() {
          });
 
      });
+
+    $('#addButton').on('click', function () {
+        document.getElementById("displayTable").style.display = "none";
+        document.getElementById("input").style.display = "";
+        document.getElementById("saveButton").style.display = "";
     });
+
+    $('#saveButton').on('click', function () {
+
+    });
+});
 
