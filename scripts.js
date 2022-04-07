@@ -21,7 +21,7 @@ $(function() {
                     tbodyEl.append('\
                         <tr>\
                             <td class="name">' + (number) + '</td>\
-                            <td class="name">' + element.name + '</td>\
+                            <td><input type="text" class="name form-control" value="' + element.name +'"></td>\
                             <td><input type="text" class="name form-control" value="' + element.description +'"></td>\
                              <td><input type="text" class="name form-control" value="' + element.category +'"></td>\
                             \<td><input type="text" class="name form-control" value="' + element.price +'"></td>\
