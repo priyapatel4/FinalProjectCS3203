@@ -34,6 +34,22 @@ app.get('/getinfo', function(req, res) {
  res.send({items: menuItems});
 });
 
+//Posts created tweets
+app.post('/addNewItem', function(req, res) {
+    const newItemName = req.body.name;
+    const newItemDescription = req.body.description;
+    const newItemCategory = req.body.category;
+    const newItemPrice = req.body.price;
+
+    var obj = { name: item_name, description: item_description, category: item_category , price: item_price}
+
+
+    menuItems.push(obj);
+
+    res.send('created');
+
+});
+
 
 app.listen(PORT, function() {
     console.log('Server listening on ' + PORT);
