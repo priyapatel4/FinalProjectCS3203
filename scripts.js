@@ -42,6 +42,10 @@ $(function() {
         document.getElementById("displayTable").style.display = "none";
         document.getElementById("input").style.display = "";
         document.getElementById("saveButton").style.display = "";
+
+
+
+
     });
 
     $('#saveButton').on('click', function () {
