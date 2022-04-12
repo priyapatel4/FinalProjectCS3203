@@ -36,15 +36,21 @@ app.get('/getinfo', function(req, res) {
 
 //Posts created tweets
 app.post('/addNewItem', function(req, res) {
-    const newItemName = req.body.name;
-    const newItemDescription = req.body.description;
-    const newItemCategory = req.body.category;
-    const newItemPrice = req.body.price;
+    const newItemName = req.body.name_input;
+    const newItemDescription = req.body.description_input;
+  //  const newItemCategory = req.body.category_input;
+    const newItemPrice = req.body.price_input;
 
-    var obj = { name: item_name, description: item_description, category: item_category , price: item_price}
+   // var obj = { name: item_name, description: item_description, category: item_category , price: item_price}
 
+        menuItems.push({
+            name: newItemName,
+            description: newItemDescription,
+            price: newItemPrice
 
-    menuItems.push(obj);
+        });
+
+  //  menuItems.push(obj);
 
     res.send('created');
 

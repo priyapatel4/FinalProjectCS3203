@@ -43,7 +43,35 @@ $(function() {
         document.getElementById("input-box").style.display = "";
     });
 
-    $('#saveButton').on('click', function () {
+    $('#input-box').on('submit', function (event) {
+        event.preventDefault();
+
+        var nameInput = $('#name');
+        var descriptionInput = $('#description');
+     //   var category = $('#category');;
+        var priceInput = $('#price');
+
+        $.ajax({
+            url: '/addNewItem',
+            method: 'POST',
+
+            //If error, possibly look at this later on to change to contentType
+            contentType: 'application/json',
+            data: JSON.stringify({ name_input: nameInput }),
+            data: JSON.stringify({ description_input: descriptionInput }),
+        //    data: JSON.stringify({ category_input: category.val() }),
+            data: JSON.stringify({ price_input: priceInput.val() }),
+            success: function(response) {
+                console.log(response);
+               // nameInput('');
+              //  descriptionInput('');
+              //  category('');
+                priceInput.val('');
+               // $('#get-button').click();
+
+            }
+        });
+
         alert("New item added!");
 
 
