@@ -20,7 +20,7 @@
     </div>
 
     <div class="option-button">
-<!--        <button id="get-button">Show Menu</button>-->
+        <!--        <button id="get-button">Show Menu</button>-->
         <button class="button" id="get-button">Show Menu</button>
         <button class="button" id="addButton">Add New Item</button>
         <button class="button">Filter Menu</button>
@@ -40,17 +40,50 @@
     </div>
 
     <div class="input-box">
-        <form id="input" style="display:none">
-            <label for="name">Item Name:</label>
-            <input type="text" id="name"><br>
-            <label for="description">Description:</label>
-            <input type="text" id="description"><br>
-            <label for="category">Category:</label>
-            <input type="text" id="category"><br>
-            <label for="price">Price:</label>
-            <input type="text" id="price"><br>
+        <form id="input-box" style="display:none">
+            <div class="row">
+                <div class="col-25">
+                    <label for="name">Item Name</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="item_name" name="item_name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="description">Description</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="description" name="description">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="category">Category</label>
+                </div>
+                <div class="col-75">
+                    <select id="category" name="category">
+                        <option value="appetizer">Appetizer</option>
+                        <option value="entree">Entree</option>
+                        <option value="dessert">Dessert</option>
+                        <option value="drink">Drink</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="price">Price</label>
+                </div>
+                <div class="col-75">
+                    <input type="number" id="price" name="price" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <input type="submit" id="saveButton" value="SAVE">
+            </div>
         </form>
-        <button class="button" id="saveButton" style="display:none">SAVE</button>
-    </div>   
+    </div>
+
 </body>
 </html>

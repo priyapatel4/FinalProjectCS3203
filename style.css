@@ -17,27 +17,27 @@ body.home {
     text-align: center;
 }
 
-.menu-bar ul {
-    display: inline-flex;
-    list-style: none;
-    color: #fff;
-}
+    .menu-bar ul {
+        display: inline-flex;
+        list-style: none;
+        color: #fff;
+    }
 
-.menu-bar ul li {
-    width: 120px;
-    margin: 15px;
-    padding: 15px;
-}
+        .menu-bar ul li {
+            width: 120px;
+            margin: 15px;
+            padding: 15px;
+        }
 
-.menu-bar ul li a {
-    text-decoration: none;
-    color: #fff;
-}
+            .menu-bar ul li a {
+                text-decoration: none;
+                color: #fff;
+            }
 
-.active, .menu-bar ul li:hover {
-    background: #6a564c;
-    border-radius: 3px;
-}
+            .active, .menu-bar ul li:hover {
+                background: #6a564c;
+                border-radius: 3px;
+            }
 
 .option-button {
     padding-top: 50px;
@@ -55,6 +55,7 @@ body.home {
     display: inline-block;
     font-size: 16px;
     border-radius: 3px;
+    cursor: pointer;
 }
 
     .button:hover {
@@ -64,14 +65,87 @@ body.home {
 table {
     border-collapse: collapse;
     border-spacing: 0;
-    width: 75%;
+    width: 80%;
     border: 1px solid #ddd;
     margin-left: auto;
     margin-right: auto;
 }
 
-
 th, td {
     text-align: left;
     padding: 8px;
+}
+
+.input-box {
+    box-sizing: border-box;
+}
+
+input[type=text], select {
+    width: 70%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    resize: vertical;
+}
+
+input[type=number], select {
+    width: 70%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit] {
+    background-color: #9d8a7f;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    float: right;
+    margin-right: 342px;
+}
+
+    input[type=submit]:hover {
+        background-color: #6a564c;
+    }
+
+.container {
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.col-25 {
+    float: left;
+    width: 10%;
+    margin-top: 6px;
+    margin-left: 350px;
+}
+
+.col-75 {
+    float: left;
+    width: 60%;
+    margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
 }
