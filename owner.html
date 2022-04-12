@@ -11,79 +11,79 @@
 </head>
 
 <body class="owner">
-    <div class="menu-bar">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li class="active"><a href="owner.html">Owner</a></li>
-        </ul>
-    </div>
+<div class="menu-bar">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li class="active"><a href="owner.html">Owner</a></li>
+    </ul>
+</div>
 
-    <div class="option-button">
-        <!--        <button id="get-button">Show Menu</button>-->
-        <button class="button" id="get-button">Show Menu</button>
-        <button class="button" id="addButton">Add New Item</button>
-        <button class="button">Filter Menu</button>
-    </div>
+<div class="option-button">
+    <!--        <button id="get-button">Show Menu</button>-->
+    <button class="button" id="get-button">Show Menu</button>
+    <button class="button" id="addButton">Add New Item</button>
+    <button class="button">Filter Menu</button>
+</div>
 
-    <div style="overflow-x:auto;">
-        <table id="displayTable" style="display:none">
-            <tr>
-                <th>No.</th>
-                <th>Item Name</th>
-                <th>Description</th>
-                <th>Category</th>
-                <th>Price</th>
-            </tr>
-            <tbody id="namebody"></tbody>
-        </table>
-    </div>
+<div style="overflow-x:auto;">
+    <table id="displayTable" style="display:none">
+        <tr>
+            <th>No.</th>
+            <th>Item Name</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Price</th>
+        </tr>
+        <tbody id="namebody"></tbody>
+    </table>
+</div>
 
-    <div class="input-box">
-        <form id="input-box" style="display:none">
-            <div class="row">
-                <div class="col-25">
-                    <label for="name">Item Name</label>
-                </div>
-                <div class="col-75">
-                    <input type="text" id="item_name" name="item_name">
-                </div>
+<div class="input-box">
+    <form id="input-box" style="display:none">
+        <div class="row">
+            <div class="col-25">
+                <label for="name">Item Name</label>
             </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="description">Description</label>
-                </div>
-                <div class="col-75">
-                    <input type="text" id="description" name="description">
-                </div>
+            <div class="col-75">
+                <input type="text" id="name" name="item_name">
             </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="category">Category</label>
-                </div>
-                <div class="col-75">
-                    <select id="category" name="category">
-                        <option value="appetizer">Appetizer</option>
-                        <option value="entree">Entree</option>
-                        <option value="dessert">Dessert</option>
-                        <option value="drink">Drink</option>
-                    </select>
-                </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="description">Description</label>
             </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="price">Price</label>
-                </div>
-                <div class="col-75">
-                    <input type="number" id="price" name="price" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100">
-                </div>
+            <div class="col-75">
+                <input type="text" id="description" name="description">
             </div>
-            <br>
-            <div class="row">
-                <input type="submit" id="saveButton" value="SAVE">
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="category">Category</label>
             </div>
-        </form>
-    </div>
+            <div class="col-75">
+                <select id="category" name="category">
+                    <option value="appetizer">Appetizer</option>
+                    <option value="entree">Entree</option>
+                    <option value="dessert">Dessert</option>
+                    <option value="drink">Drink</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="price">Price</label>
+            </div>
+            <div class="col-75">
+                <input type="number" id="price" name="price" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <input type="submit" id="saveButton" value="SAVE">
+        </div>
+    </form>
+</div>
 
 </body>
 </html>
