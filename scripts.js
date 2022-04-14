@@ -23,7 +23,7 @@ $(function() {
                     //number = number +1;
                     tbodyEl.append('\
                         <tr>\
-                            <td class="name">' + element.id + '</td>\
+                            <td class="id">' + element.id + '</td>\
                             <td><input type="text" class="name form-control" value="' + element.name +'"></td>\
                             <td><input type="text" class="name form-control" value="' + element.description +'"></td>\
                              <td><input type="text" class="name form-control" value="' + element.category +'"></td>\
@@ -79,7 +79,7 @@ $(function() {
     });
 
     // UPDATE/PUT
-    $('displayTable').on('click', '.update-button', function() {
+    $('#namebody').on('click', '.update-button', function() {
         var rowEl = $(this).closest('tr');
         var id = rowEl.find('.id').text();
         var newName = rowEl.find('.name').val();
@@ -88,12 +88,13 @@ $(function() {
             url: '/updateItems',
             method: 'PUT',
             contentType: 'application/json',
-            data: JSON.stringify({ newName: newName }),
+            data: JSON.stringify({ name: newName }),
             success: function(response) {
                 console.log(response);
-                $('#get-button').click();
+              //  $('#get-button').click();
             }
         });
+        alert("item updated!");
     });
 
     $('#filter-button').on('click', function () {

@@ -69,12 +69,12 @@ app.post('/addNewItem', function(req, res) {
 
 app.put('/updateItems', function(req, res) {
     var id = req.params.id;
-    var newName = req.body.newName;
+    var newName = req.body.name;
 
     var found = false;
 
-    products.forEach(function(product, index) {
-        if (!found && product.id === Number(id)) {
+    menuItems.forEach(function(item, index) {
+        if (!found && item.item_id == id) {
             product.name = newName;
         }
     });
