@@ -8,6 +8,7 @@ app.use(express.static(__dirname));
 app.use(bodyParser.json());
 
 var menuItems = []
+var idNumber =1;
 
 fs.readFile('menu.json', 'utf8', function readFileCallback(err,data ){
     if(err){
@@ -19,8 +20,9 @@ fs.readFile('menu.json', 'utf8', function readFileCallback(err,data ){
     else{
         let menuData = JSON.parse(data)
         menuData.forEach(function(element) {
-            menuItems.push({name:element.item_name,description:element.item_description,category:element.item_category,
+            menuItems.push({id:element.item_id,name:element.item_name,description:element.item_description,category:element.item_category,
                 price:element.item_price });
+            idNumber++;
         });
         console.log(menuItems);
     }
@@ -41,20 +43,37 @@ app.post('/addNewItem', function(req, res) {
     var newItemCategory = req.body.category_input;
     var newItemPrice = req.body.price_input;
 
-   // var obj = { name: item_name, description: item_description, category: item_category , price: item_price}
 
         menuItems.push({
             name: newItemName,
             description: newItemDescription,
             category: newItemCategory,
-            price: newItemPrice
+            price: newItemPrice,
+            id:idNumber
 
         });
+        idNumber++;
 
-  //  menuItems.push(obj);
+
 
     res.send('created');
 
+});
+
+
+app.put('/updateItems', function(req, res) {
+    var id = req.params.id;
+    var newName = req.body.newName;
+
+    var found = false;
+
+    products.forEach(function(product, index) {
+        if (!found && product.id === Number(id)) {
+            product.name = newName;
+        }
+    });
+
+    res.send('Succesfully updated product!');
 });
 
 

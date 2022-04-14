@@ -18,12 +18,12 @@ $(function() {
                 tbodyEl.html('');
 
 
-                var number = 0;
+                //var number = 0;
                 response.items.forEach(function(element) {// would output the id, time created, name of the person tweeting and the tweet. also adds an update and delete button to delete or update the tweet
-                    number = number +1;
+                    //number = number +1;
                     tbodyEl.append('\
                         <tr>\
-                            <td class="name">' + (number) + '</td>\
+                            <td class="name">' + element.id + '</td>\
                             <td><input type="text" class="name form-control" value="' + element.name +'"></td>\
                             <td><input type="text" class="name form-control" value="' + element.description +'"></td>\
                              <td><input type="text" class="name form-control" value="' + element.category +'"></td>\
@@ -76,6 +76,24 @@ $(function() {
         alert("New item added!");
 
 
+    });
+
+    // UPDATE/PUT
+    $('displayTable').on('click', '.update-button', function() {
+        var rowEl = $(this).closest('tr');
+        var id = rowEl.find('.id').text();
+        var newName = rowEl.find('.name').val();
+
+        $.ajax({
+            url: '/updateItems',
+            method: 'PUT',
+            contentType: 'application/json',
+            data: JSON.stringify({ newName: newName }),
+            success: function(response) {
+                console.log(response);
+                $('#get-button').click();
+            }
+        });
     });
 
     $('#filter-button').on('click', function () {
