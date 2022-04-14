@@ -2,7 +2,7 @@ var express = require('express');//ensures Express server is used
 var app = express();//ensures Express server is used
 var bodyParser = require('body-parser');
 var PORT = process.env.PORT || 3000;
-const fs = require('fs');//sets us the fs for the parsing functions
+var fs = require('fs');//sets us the fs for the parsing functions
 
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
@@ -36,16 +36,17 @@ app.get('/getinfo', function(req, res) {
 
 //Posts created tweets
 app.post('/addNewItem', function(req, res) {
-    const newItemName = req.body.name_input;
-    const newItemDescription = req.body.description_input;
-  //  const newItemCategory = req.body.category_input;
-    const newItemPrice = req.body.price_input;
+    var newItemName = req.body.name_input;
+    var newItemDescription = req.body.description_input;
+    var newItemCategory = req.body.category_input;
+    var newItemPrice = req.body.price_input;
 
    // var obj = { name: item_name, description: item_description, category: item_category , price: item_price}
 
         menuItems.push({
             name: newItemName,
             description: newItemDescription,
+            category: newItemCategory,
             price: newItemPrice
 
         });
