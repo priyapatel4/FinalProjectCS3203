@@ -4,6 +4,9 @@ $(function() {
     $('#get-button').on('click', function () {//this sets up the function in response to clicking the button to get all tweets
         document.getElementById("input-box").style.display = "none";
         document.getElementById("displayTable").style.display = "";
+        document.getElementById("by-categories").style.display = "none";
+        document.getElementById("by-price").style.display = "none";
+        document.getElementById("by-alphabet").style.display = "none";
         $.ajax({
             type:'GET',
             url: '/getinfo',// sets up the pathway to the server
@@ -41,6 +44,9 @@ $(function() {
     $('#addButton').on('click', function () {
         document.getElementById("displayTable").style.display = "none";
         document.getElementById("input-box").style.display = "";
+        document.getElementById("by-categories").style.display = "none";
+        document.getElementById("by-price").style.display = "none";
+        document.getElementById("by-alphabet").style.display = "none";
     });
 
     $('#input-box').on('submit', function (event) {
@@ -76,4 +82,41 @@ $(function() {
 
 
     });
+
+    $('#filter-button').on('click', function () {
+        document.getElementById("displayTable").style.display = "none";
+        document.getElementById("input-box").style.display = "none";
+        document.getElementById("by-categories").style.display = "";
+        document.getElementById("by-price").style.display = "";
+        document.getElementById("by-alphabet").style.display = "";
+    });
+
+    $('#by-categories').on('click', function (event) {
+        document.getElementById("by-categories").style.color = "white";
+        document.getElementById("by-categories").style.background = "#9d8a7f";
+        document.getElementById("by-price").style.color = "#9d8a7f";
+        document.getElementById("by-price").style.background = "white";
+        document.getElementById("by-alphabet").style.color = "#9d8a7f";
+        document.getElementById("by-alphabet").style.background = "white";
+    });
+
+    $('#by-price').on('click', function (event) {
+        document.getElementById("by-price").style.color = "white";
+        document.getElementById("by-price").style.background = "#9d8a7f";
+        document.getElementById("by-categories").style.color = "#9d8a7f";
+        document.getElementById("by-categories").style.background = "white";
+        document.getElementById("by-alphabet").style.color = "#9d8a7f";
+        document.getElementById("by-alphabet").style.background = "white";
+    });
+
+    $('#by-alphabet').on('click', function (event) {
+        document.getElementById("by-alphabet").style.color = "white";
+        document.getElementById("by-alphabet").style.background = "#9d8a7f";
+        document.getElementById("by-price").style.color = "#9d8a7f";
+        document.getElementById("by-price").style.background = "white";
+        document.getElementById("by-categories").style.color = "#9d8a7f";
+        document.getElementById("by-categories").style.background = "white";
+    });
+
+    
 });
