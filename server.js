@@ -55,7 +55,13 @@ app.post('/addNewItem', function(req, res) {
         idNumber++;
 
 
-
+    fs.writeFile('./menu.json', JSON.stringify(menuItems, null, 2), err => {
+        if(err){
+            console.log(err);
+        }else{
+            console.log('File successfully written');
+        }
+    })
     res.send('created');
 
 });
