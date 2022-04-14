@@ -53,26 +53,22 @@ $(function() {
 
         var nameInput = $('#name');
         var descriptionInput = $('#description');
-        //   var category = $('#category');;
+        var categoryInput = $('#category');
         var priceInput = $('#price');
 
         $.ajax({
             url: '/addNewItem',
             method: 'POST',
-
-            //If error, possibly look at this later on to change to contentType
             contentType: 'application/json',
-            data: JSON.stringify({ name_input: nameInput }),
-            data: JSON.stringify({ description_input: descriptionInput }),
-            //    data: JSON.stringify({ category_input: category.val() }),
-            data: JSON.stringify({ price_input: priceInput.val() }),
+            data: JSON.stringify({ name_input: nameInput.val(), price_input:priceInput.val(),
+                description_input: descriptionInput.val(), category_input: categoryInput.val()}),
             success: function(response) {
                 console.log(response);
-                // nameInput('');
-                //  descriptionInput('');
-                //  category('');
+                nameInput.val('');
+                descriptionInput.val('');
+                categoryInput.val('');
                 priceInput.val('');
-                // $('#get-button').click();
+             // $('#get-button').click();
 
             }
         });
