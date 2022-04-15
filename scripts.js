@@ -24,10 +24,10 @@ $(function() {
                     tbodyEl.append('\
                         <tr>\
                             <td class="id">' + element.id + '</td>\
-                            <td><input type="text" class="name form-control" value="' + element.name +'"></td>\
-                            <td><input type="text" class="name form-control" value="' + element.description +'"></td>\
-                             <td><input type="text" class="name form-control" value="' + element.category +'"></td>\
-                            \<td><span>$</span><input type="text" class="name form-control" value="' + element.price +'"></td>\
+                            <td><input type="text" class="name" value="' + element.name +'"></td>\
+                            <td><input type="text" class="description" value="' + element.description +'"></td>\
+                             <td><input type="text" class="category" value="' + element.category +'"></td>\
+                            \<td><span>$</span><input type="text" class="price" value="' + element.price +'"></td>\
                             <td>\
                                 <button class = "button" id ="update-button">UPDATE</button>\
                                 <button class = "button" id ="delete-button">DELETE</button>\
@@ -79,16 +79,21 @@ $(function() {
     });
 
     // UPDATE/PUT
-    $('#namebody').on('click', '.update-button', function() {
+    $('#namebody').on('click', '#update-button', function() {
         var rowEl = $(this).closest('tr');
-        var id = rowEl.find('.id').text();
+        var given_id = rowEl.find('.id').text();
         var newName = rowEl.find('.name').val();
+        var newDescription = rowEl.find('.description').val();
+        var newCategory = rowEl.find('.category').val();
+        var newPrice = rowEl.find('.price').val();
+
 
         $.ajax({
             url: '/updateItems',
             method: 'PUT',
             contentType: 'application/json',
-            data: JSON.stringify({ name: newName }),
+            data: JSON.stringify({ name: newName, id: given_id,  description:newDescription, category: newCategory,
+            price: newPrice}),
             success: function(response) {
                 console.log(response);
               //  $('#get-button').click();

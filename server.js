@@ -68,14 +68,26 @@ app.post('/addNewItem', function(req, res) {
 
 
 app.put('/updateItems', function(req, res) {
-    var id = req.params.id;
+    var id = req.body.id;
     var newName = req.body.name;
+    var newDescription = req.body.description;
+    var newCategory = req.body.category;
+    var newPrice = req.body.price;
 
-    var found = false;
 
-    menuItems.forEach(function(item, index) {
-        if (!found && item.item_id == id) {
-            product.name = newName;
+  //  var found = false;
+
+   console.log(newName);
+   console.log(id);
+
+    menuItems.forEach(function(element) {
+        if (element.id == id) {
+           element.name = newName;
+            element.description = newDescription;
+            element.category = newCategory;
+            element.price = newPrice;
+           // console.log(item.item_id);
+
         }
     });
 
