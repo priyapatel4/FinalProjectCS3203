@@ -102,6 +102,26 @@ $(function() {
         alert("item updated!");
     });
 
+
+
+
+
+    $('#namebody').on('click', '#delete-button', function() {
+        var rowEl = $(this).closest('tr');
+        var given_id = rowEl.find('.id').text();
+
+        $.ajax({
+            url: '/deleteItems',
+            method: 'DELETE',
+            contentType: 'application/json',
+            data: JSON.stringify({id: given_id}),
+            success: function(response) {
+                console.log(response);
+                $('#get-button').click();
+            }
+        });
+    });
+
     $('#filter-button').on('click', function () {
         document.getElementById("displayTable").style.display = "none";
         document.getElementById("input-box").style.display = "none";

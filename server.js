@@ -95,6 +95,21 @@ app.put('/updateItems', function(req, res) {
 });
 
 
+app.delete('/deleteItems', function(req, res) {
+    var id = req.body.id;
+    console.log(id);
+
+    menuItems.forEach(function(element, index){
+        if ( element.id == id) {
+            menuItems.splice(index, 1);
+        }
+
+    });
+    res.send('Successfully deleted product');
+
+});
+
+
 app.listen(PORT, function() {
     console.log('Server listening on ' + PORT);
 });
