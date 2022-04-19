@@ -109,6 +109,19 @@ app.delete('/deleteItems', function(req, res) {
 
 });
 
+app.get('/getPriceFilter', function(req, res) {
+    var sortedItems = [];
+    menuItems.forEach(function(element){
+        let copiedItem = JSON.parse(JSON.stringify(element));
+        sortedItems.push(copiedItem);
+    })
+
+    sortedItems.forEach(function(element){
+        element.price = 5;
+    })
+    console.log(sortedItems);
+    res.send({items: sortedItems});
+});
 
 app.listen(PORT, function() {
     console.log('Server listening on ' + PORT);

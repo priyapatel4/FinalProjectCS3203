@@ -1,6 +1,7 @@
 $(function() {
     // GET/READ
     $('#get-button').on('click', function () {//this sets up the function in response to clicking the button to get all tweets
+         $("#priceTable").remove(); // to clear the filtered table whenever you display the orginal table
         document.getElementById("input-box").style.display = "none";
         document.getElementById("displayTable").style.display = "";
         document.getElementById("by-categories").style.display = "none";
@@ -18,9 +19,8 @@ $(function() {
                 tbodyEl.html('');
 
 
-                //var number = 0;
+
                 response.items.forEach(function(element) {// would output the id, time created, name of the person tweeting and the tweet. also adds an update and delete button to delete or update the tweet
-                    //number = number +1;
                     tbodyEl.append('\
                         <tr>\
                             <td class="id">' + element.id + '</td>\
@@ -96,7 +96,7 @@ $(function() {
             price: newPrice}),
             success: function(response) {
                 console.log(response);
-              //  $('#get-button').click();
+                $('#get-button').click();
             }
         });
         alert("item updated!");
@@ -146,6 +146,38 @@ $(function() {
         document.getElementById("by-categories").style.background = "white";
         document.getElementById("by-alphabet").style.color = "#9d8a7f";
         document.getElementById("by-alphabet").style.background = "white";
+        document.getElementById("displayTable").style.display = "";
+
+
+
+        $.ajax({
+            type:'GET',
+            url: '/getPriceFilter',// sets up the pathway to the server
+            contentType: 'application/json',
+            success: function(response) {//gets the response form the pathway if successful
+
+                console.log(response);
+                let tbodyEl = $('#namebody');
+
+                tbodyEl.html('');
+
+
+
+                response.items.forEach(function(element) {// would output the id, time created, name of the person tweeting and the tweet. also adds an update and delete button to delete or update the tweet
+                    tbodyEl.append('\
+                        <tr>\
+                            <td class="id">' + element.id + '</td>\
+                            <td><input type="text" class="name" value="' + element.name +'"></td>\
+                            <td><input type="text" class="description" value="' + element.description +'"></td>\
+                             <td><input type="text" class="category" value="' + element.category +'"></td>\
+                            \<td><span>$</span><input type="text" class="price" value="' + element.price +'"></td>\
+                        </tr>\
+                    ');
+                });
+            }
+        });
+
+
     });
 
     $('#by-alphabet').on('click', function (event) {
@@ -156,6 +188,8 @@ $(function() {
         document.getElementById("by-categories").style.color = "#9d8a7f";
         document.getElementById("by-categories").style.background = "white";
     });
+
+
 
 
 });
