@@ -137,6 +137,55 @@ app.get('/getAlphabeticalFilter', function(req, res) {
     res.send({items: sortedItems});
 });
 
+app.get('/getAppetizerFilter', function(req, res) {
+    var sortedItems = [];
+    menuItems.forEach(function(element){
+        if (element.category == "appetizer")
+        {
+            let copiedItem = JSON.parse(JSON.stringify(element));
+            sortedItems.push(copiedItem);
+        }
+    })
+    console.log(sortedItems);
+    res.send({items: sortedItems});
+});
+app.get('/getDrinkFilter', function(req, res) {
+    var sortedItems = [];
+    menuItems.forEach(function(element){
+        if (element.category == "drink")
+        {
+            let copiedItem = JSON.parse(JSON.stringify(element));
+            sortedItems.push(copiedItem);
+        }
+    })
+    console.log(sortedItems);
+    res.send({items: sortedItems});
+});
+app.get('/getEntreeFilter', function(req, res) {
+    var sortedItems = [];
+    menuItems.forEach(function(element){
+        if (element.category == "entree")
+        {
+            let copiedItem = JSON.parse(JSON.stringify(element));
+            sortedItems.push(copiedItem);
+        }
+    })
+    console.log(sortedItems);
+    res.send({items: sortedItems});
+});
+app.get('/getDessertFilter', function(req, res) {
+    var sortedItems = [];
+    menuItems.forEach(function(element){
+        if (element.category == "dessert")
+        {
+            let copiedItem = JSON.parse(JSON.stringify(element));
+            sortedItems.push(copiedItem);
+        }
+    })
+    console.log(sortedItems);
+    res.send({items: sortedItems});
+});
+
 app.listen(PORT, function() {
     console.log('Server listening on ' + PORT);
 });

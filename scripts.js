@@ -144,6 +144,7 @@ $(function() {
     });
 
     $('#appetizer').on('click', function (event) {
+        $("#namebody").empty();
         document.getElementById("appetizer").style.color = "white";
         document.getElementById("appetizer").style.background = "#9d8a7f";
         document.getElementById("entree").style.color = "#9d8a7f";
@@ -152,9 +153,38 @@ $(function() {
         document.getElementById("dessert").style.background = "white";
         document.getElementById("drink").style.color = "#9d8a7f";
         document.getElementById("drink").style.background = "white";
+        document.getElementById("displayTable").style.display = "";
+
+        $.ajax({
+            type:'GET',
+            url: '/getAppetizerFilter',// sets up the pathway to the server
+            contentType: 'application/json',
+            success: function(response) {//gets the response form the pathway if successful
+
+                console.log(response);
+                let tbodyEl = $('#namebody');
+
+                tbodyEl.html('');
+
+
+
+                response.items.forEach(function(element) {// would output the id, time created, name of the person tweeting and the tweet. also adds an update and delete button to delete or update the tweet
+                    tbodyEl.append('\
+                        <tr>\
+                            <td class="id">' + element.id + '</td>\
+                            <td><input type="text" class="name" value="' + element.name +'"></td>\
+                            <td><input type="text" class="description" value="' + element.description +'"></td>\
+                             <td><input type="text" class="category" value="' + element.category +'"></td>\
+                            \<td><span>$</span><input type="text" class="price" value="' + element.price +'"></td>\
+                        </tr>\
+                    ');
+                });
+            }
+        });
     });
 
     $('#entree').on('click', function (event) {
+        $("#namebody").empty();
         document.getElementById("entree").style.color = "white";
         document.getElementById("entree").style.background = "#9d8a7f";
         document.getElementById("appetizer").style.color = "#9d8a7f";
@@ -163,9 +193,40 @@ $(function() {
         document.getElementById("dessert").style.background = "white";
         document.getElementById("drink").style.color = "#9d8a7f";
         document.getElementById("drink").style.background = "white";
+        document.getElementById("displayTable").style.display = "";
+
+
+        $.ajax({
+            type:'GET',
+            url: '/getEntreeFilter',// sets up the pathway to the server
+            contentType: 'application/json',
+            success: function(response) {//gets the response form the pathway if successful
+
+                console.log(response);
+                let tbodyEl = $('#namebody');
+
+                tbodyEl.html('');
+
+
+
+                response.items.forEach(function(element) {// would output the id, time created, name of the person tweeting and the tweet. also adds an update and delete button to delete or update the tweet
+                    tbodyEl.append('\
+                        <tr>\
+                            <td class="id">' + element.id + '</td>\
+                            <td><input type="text" class="name" value="' + element.name +'"></td>\
+                            <td><input type="text" class="description" value="' + element.description +'"></td>\
+                             <td><input type="text" class="category" value="' + element.category +'"></td>\
+                            \<td><span>$</span><input type="text" class="price" value="' + element.price +'"></td>\
+                        </tr>\
+                    ');
+                });
+            }
+        });
+
     });
 
     $('#dessert').on('click', function (event) {
+        $("#namebody").empty();
         document.getElementById("dessert").style.color = "white";
         document.getElementById("dessert").style.background = "#9d8a7f";
         document.getElementById("entree").style.color = "#9d8a7f";
@@ -174,9 +235,40 @@ $(function() {
         document.getElementById("appetizer").style.background = "white";
         document.getElementById("drink").style.color = "#9d8a7f";
         document.getElementById("drink").style.background = "white";
+        document.getElementById("displayTable").style.display = "";
+
+
+
+        $.ajax({
+            type:'GET',
+            url: '/getDessertFilter',// sets up the pathway to the server
+            contentType: 'application/json',
+            success: function(response) {//gets the response form the pathway if successful
+
+                console.log(response);
+                let tbodyEl = $('#namebody');
+
+                tbodyEl.html('');
+
+
+
+                response.items.forEach(function(element) {// would output the id, time created, name of the person tweeting and the tweet. also adds an update and delete button to delete or update the tweet
+                    tbodyEl.append('\
+                        <tr>\
+                            <td class="id">' + element.id + '</td>\
+                            <td><input type="text" class="name" value="' + element.name +'"></td>\
+                            <td><input type="text" class="description" value="' + element.description +'"></td>\
+                             <td><input type="text" class="category" value="' + element.category +'"></td>\
+                            \<td><span>$</span><input type="text" class="price" value="' + element.price +'"></td>\
+                        </tr>\
+                    ');
+                });
+            }
+        });
     });
 
     $('#drink').on('click', function (event) {
+        $("#namebody").empty();
         document.getElementById("drink").style.color = "white";
         document.getElementById("drink").style.background = "#9d8a7f";
         document.getElementById("entree").style.color = "#9d8a7f";
@@ -185,6 +277,36 @@ $(function() {
         document.getElementById("dessert").style.background = "white";
         document.getElementById("appetizer").style.color = "#9d8a7f";
         document.getElementById("appetizer").style.background = "white";
+        document.getElementById("displayTable").style.display = "";
+
+
+        $.ajax({
+            type:'GET',
+            url: '/getDrinkFilter',// sets up the pathway to the server
+            contentType: 'application/json',
+            success: function(response) {//gets the response form the pathway if successful
+
+                console.log(response);
+                let tbodyEl = $('#namebody');
+
+                tbodyEl.html('');
+
+
+
+                response.items.forEach(function(element) {// would output the id, time created, name of the person tweeting and the tweet. also adds an update and delete button to delete or update the tweet
+                    tbodyEl.append('\
+                        <tr>\
+                            <td class="id">' + element.id + '</td>\
+                            <td><input type="text" class="name" value="' + element.name +'"></td>\
+                            <td><input type="text" class="description" value="' + element.description +'"></td>\
+                             <td><input type="text" class="category" value="' + element.category +'"></td>\
+                            \<td><span>$</span><input type="text" class="price" value="' + element.price +'"></td>\
+                        </tr>\
+                    ');
+                });
+            }
+        });
+
     });
 
     $('#by-price').on('click', function (event) {
