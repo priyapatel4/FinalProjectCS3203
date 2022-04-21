@@ -111,17 +111,38 @@ app.delete('/deleteItems', function(req, res) {
 
 app.get('/getPriceFilter', function(req, res) {
     var sortedItems = [];
+    var numItems = 0;
     menuItems.forEach(function(element){
         let copiedItem = JSON.parse(JSON.stringify(element));
         sortedItems.push(copiedItem);
+        numItems++;
     })
+    var indexOuter, indexInner;
+    for (indexOuter = 0; indexOuter < numItems-1; indexOuter++)
+    {
+        for (indexInner = 0; indexInner < numItems-indexInner-1; indexInner++)
+        {
 
-    sortedItems.forEach(function(element){
-        element.price = 5;
-    })
+            if (sortedItems[indexOuter].price > sortedItems[indexInner+1].price)
+            {
+                var temp = sortedItems[indexInner].price;
+                sortedItems[indexInner].price = sortedItems[indexInner + 1].price;
+                sortedItems[indexInner + 1].price = temp;
+
+            }
+        }
+
+    }
+
+    // sortedItems.forEach(function(element){
+    //     element.price = 5;
+    // })
     console.log(sortedItems);
     res.send({items: sortedItems});
 });
+
+
+
 
 app.get('/getAlphabeticalFilter', function(req, res) {
     var sortedItems = [];
