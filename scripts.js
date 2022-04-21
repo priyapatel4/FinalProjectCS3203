@@ -137,6 +137,10 @@ $(function() {
         document.getElementById("by-price").style.background = "white";
         document.getElementById("by-alphabet").style.color = "#9d8a7f";
         document.getElementById("by-alphabet").style.background = "white";
+        document.getElementById("appetizer").style.display = "";
+        document.getElementById("entree").style.display = "";
+        document.getElementById("dessert").style.display = "";
+        document.getElementById("drink").style.display = "";
     });
 
     $('#by-price').on('click', function (event) {

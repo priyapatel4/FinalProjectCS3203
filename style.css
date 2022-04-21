@@ -82,22 +82,21 @@ body.home {
     cursor: pointer;
 }
 
-.filter-options {
+.categories {
     text-align: center;
-    padding-bottom: 50px;
 }
 
-.small-button {
+.small-button2 {
     background-color: white;
     border: 2px solid black;
     border-color: #9d8a7f;
     color: #9d8a7f;
-    padding: 12px;
+    padding: 10px;
     margin: 5px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 14px;
     border-radius: 3px;
     cursor: pointer;
 }
