@@ -11,6 +11,10 @@ $(function() {
         document.getElementById("entree").style.display = "none";
         document.getElementById("dessert").style.display = "none";
         document.getElementById("drink").style.display = "none";
+        document.getElementById("lowtohigh").style.display = "none";
+        document.getElementById("hightolow").style.display = "none";
+        document.getElementById("atoz").style.display = "none";
+        document.getElementById("ztoa").style.display = "none";
         $.ajax({
             type:'GET',
             url: '/getinfo',// sets up the pathway to the server
@@ -54,6 +58,10 @@ $(function() {
         document.getElementById("entree").style.display = "none";
         document.getElementById("dessert").style.display = "none";
         document.getElementById("drink").style.display = "none";
+        document.getElementById("lowtohigh").style.display = "none";
+        document.getElementById("hightolow").style.display = "none";
+        document.getElementById("atoz").style.display = "none";
+        document.getElementById("ztoa").style.display = "none";
     });
 
     $('#input-box').on('submit', function (event) {
@@ -149,6 +157,10 @@ $(function() {
         document.getElementById("entree").style.display = "";
         document.getElementById("dessert").style.display = "";
         document.getElementById("drink").style.display = "";
+        document.getElementById("lowtohigh").style.display = "none";
+        document.getElementById("hightolow").style.display = "none";
+        document.getElementById("atoz").style.display = "none";
+        document.getElementById("ztoa").style.display = "none";
     });
 
     $('#appetizer').on('click', function (event) {
@@ -329,7 +341,10 @@ $(function() {
         document.getElementById("entree").style.display = "none";
         document.getElementById("dessert").style.display = "none";
         document.getElementById("drink").style.display = "none";
-
+        document.getElementById("lowtohigh").style.display = "";
+        document.getElementById("hightolow").style.display = "";
+        document.getElementById("atoz").style.display = "none";
+        document.getElementById("ztoa").style.display = "none";
 
         $.ajax({
             type:'GET',
@@ -361,6 +376,23 @@ $(function() {
 
     });
 
+    $('#lowtohigh').on('click', function (event) {
+        document.getElementById("lowtohigh").style.color = "white";
+        document.getElementById("lowtohigh").style.background = "#9d8a7f";
+        document.getElementById("hightolow").style.color = "#9d8a7f";
+        document.getElementById("hightolow").style.background = "white";
+        document.getElementById("displayTable").style.display = "";
+    });
+
+    $('#hightolow').on('click', function (event) {
+        document.getElementById("hightolow").style.color = "white";
+        document.getElementById("hightolow").style.background = "#9d8a7f";
+        document.getElementById("lowtohigh").style.color = "#9d8a7f";
+        document.getElementById("lowtohigh").style.background = "white";
+        document.getElementById("displayTable").style.display = "";
+    });
+
+
     $('#by-alphabet').on('click', function (event) {
         $("#namebody").empty();
         document.getElementById("by-alphabet").style.color = "white";
@@ -374,6 +406,10 @@ $(function() {
         document.getElementById("entree").style.display = "none";
         document.getElementById("dessert").style.display = "none";
         document.getElementById("drink").style.display = "none";
+        document.getElementById("lowtohigh").style.display = "none";
+        document.getElementById("hightolow").style.display = "none";
+        document.getElementById("atoz").style.display = "";
+        document.getElementById("ztoa").style.display = "";
 
         $.ajax({
             type:'GET',
@@ -403,7 +439,19 @@ $(function() {
         });
     });
 
+    $('#atoz').on('click', function (event) {
+        document.getElementById("atoz").style.color = "white";
+        document.getElementById("atoz").style.background = "#9d8a7f";
+        document.getElementById("ztoa").style.color = "#9d8a7f";
+        document.getElementById("ztoa").style.background = "white";
+        document.getElementById("displayTable").style.display = "";
+    });
 
-
-
+    $('#ztoa').on('click', function (event) {
+        document.getElementById("ztoa").style.color = "white";
+        document.getElementById("ztoa").style.background = "#9d8a7f";
+        document.getElementById("atoz").style.color = "#9d8a7f";
+        document.getElementById("atoz").style.background = "white";
+        document.getElementById("displayTable").style.display = "";
+    });
 });
