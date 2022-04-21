@@ -7,6 +7,10 @@ $(function() {
         document.getElementById("by-categories").style.display = "none";
         document.getElementById("by-price").style.display = "none";
         document.getElementById("by-alphabet").style.display = "none";
+        document.getElementById("appetizer").style.display = "none";
+        document.getElementById("entree").style.display = "none";
+        document.getElementById("dessert").style.display = "none";
+        document.getElementById("drink").style.display = "none";
         $.ajax({
             type:'GET',
             url: '/getinfo',// sets up the pathway to the server
@@ -46,6 +50,10 @@ $(function() {
         document.getElementById("by-categories").style.display = "none";
         document.getElementById("by-price").style.display = "none";
         document.getElementById("by-alphabet").style.display = "none";
+        document.getElementById("appetizer").style.display = "none";
+        document.getElementById("entree").style.display = "none";
+        document.getElementById("dessert").style.display = "none";
+        document.getElementById("drink").style.display = "none";
     });
 
     $('#input-box').on('submit', function (event) {
@@ -317,7 +325,10 @@ $(function() {
         document.getElementById("by-alphabet").style.color = "#9d8a7f";
         document.getElementById("by-alphabet").style.background = "white";
         document.getElementById("displayTable").style.display = "";
-
+        document.getElementById("appetizer").style.display = "none";
+        document.getElementById("entree").style.display = "none";
+        document.getElementById("dessert").style.display = "none";
+        document.getElementById("drink").style.display = "none";
 
 
         $.ajax({
@@ -359,6 +370,10 @@ $(function() {
         document.getElementById("by-categories").style.color = "#9d8a7f";
         document.getElementById("by-categories").style.background = "white";
         document.getElementById("displayTable").style.display = "";
+        document.getElementById("appetizer").style.display = "none";
+        document.getElementById("entree").style.display = "none";
+        document.getElementById("dessert").style.display = "none";
+        document.getElementById("drink").style.display = "none";
 
         $.ajax({
             type:'GET',
