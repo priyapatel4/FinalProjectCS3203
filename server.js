@@ -125,10 +125,9 @@ app.get('/getPriceFilter', function(req, res) {
 
             if (sortedItems[j].price > sortedItems[j+1].price)
             {
-                var temp = sortedItems[j].price;
-                sortedItems[j].price = sortedItems[j + 1].price;
-                sortedItems[j + 1].price = temp;
-
+                var temp = sortedItems[j];
+                sortedItems[j] = sortedItems[j + 1];
+                sortedItems[j + 1] = temp;
             }
         }
 
@@ -147,14 +146,33 @@ app.get('/getPriceFilter', function(req, res) {
 
 app.get('/getAlphabeticalFilter', function(req, res) {
     var sortedItems = [];
+    var numItems =0;
     menuItems.forEach(function(element){
         let copiedItem = JSON.parse(JSON.stringify(element));
         sortedItems.push(copiedItem);
+        numItems++;
     })
 
-    sortedItems.forEach(function(element){
-        element.name = "yogurt";
-    })
+    var i, j;
+    for (i = 0; i < numItems-1; i++)
+    {
+        for (j = 0; j < numItems-i-1; j++)
+        {
+
+            if (sortedItems[j].name > sortedItems[j+1].name)
+            {
+                var temp = sortedItems[j];
+                sortedItems[j] = sortedItems[j + 1];
+                sortedItems[j + 1] = temp;
+
+            }
+        }
+
+    }
+
+    // sortedItems.forEach(function(element){
+    //     element.name = "yogurt";
+    // })
     console.log(sortedItems);
     res.send({items: sortedItems});
 });
