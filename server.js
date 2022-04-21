@@ -117,17 +117,17 @@ app.get('/getPriceFilter', function(req, res) {
         sortedItems.push(copiedItem);
         numItems++;
     })
-    var indexOuter, indexInner;
-    for (indexOuter = 0; indexOuter < numItems-1; indexOuter++)
+    var i, j;
+    for (i = 0; i < numItems-1; i++)
     {
-        for (indexInner = 0; indexInner < numItems-indexInner-1; indexInner++)
+        for (j = 0; j < numItems-i-1; j++)
         {
 
-            if (sortedItems[indexOuter].price > sortedItems[indexInner+1].price)
+            if (sortedItems[j].price > sortedItems[j+1].price)
             {
-                var temp = sortedItems[indexInner].price;
-                sortedItems[indexInner].price = sortedItems[indexInner + 1].price;
-                sortedItems[indexInner + 1].price = temp;
+                var temp = sortedItems[j].price;
+                sortedItems[j].price = sortedItems[j + 1].price;
+                sortedItems[j + 1].price = temp;
 
             }
         }
@@ -140,6 +140,7 @@ app.get('/getPriceFilter', function(req, res) {
     console.log(sortedItems);
     res.send({items: sortedItems});
 });
+
 
 
 
