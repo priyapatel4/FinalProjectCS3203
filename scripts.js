@@ -143,6 +143,50 @@ $(function() {
         document.getElementById("drink").style.display = "";
     });
 
+    $('#appetizer').on('click', function (event) {
+        document.getElementById("appetizer").style.color = "white";
+        document.getElementById("appetizer").style.background = "#9d8a7f";
+        document.getElementById("entree").style.color = "#9d8a7f";
+        document.getElementById("entree").style.background = "white";
+        document.getElementById("dessert").style.color = "#9d8a7f";
+        document.getElementById("dessert").style.background = "white";
+        document.getElementById("drink").style.color = "#9d8a7f";
+        document.getElementById("drink").style.background = "white";
+    });
+
+    $('#entree').on('click', function (event) {
+        document.getElementById("entree").style.color = "white";
+        document.getElementById("entree").style.background = "#9d8a7f";
+        document.getElementById("appetizer").style.color = "#9d8a7f";
+        document.getElementById("appetizer").style.background = "white";
+        document.getElementById("dessert").style.color = "#9d8a7f";
+        document.getElementById("dessert").style.background = "white";
+        document.getElementById("drink").style.color = "#9d8a7f";
+        document.getElementById("drink").style.background = "white";
+    });
+
+    $('#dessert').on('click', function (event) {
+        document.getElementById("dessert").style.color = "white";
+        document.getElementById("dessert").style.background = "#9d8a7f";
+        document.getElementById("entree").style.color = "#9d8a7f";
+        document.getElementById("entree").style.background = "white";
+        document.getElementById("appetizer").style.color = "#9d8a7f";
+        document.getElementById("appetizer").style.background = "white";
+        document.getElementById("drink").style.color = "#9d8a7f";
+        document.getElementById("drink").style.background = "white";
+    });
+
+    $('#drink').on('click', function (event) {
+        document.getElementById("drink").style.color = "white";
+        document.getElementById("drink").style.background = "#9d8a7f";
+        document.getElementById("entree").style.color = "#9d8a7f";
+        document.getElementById("entree").style.background = "white";
+        document.getElementById("dessert").style.color = "#9d8a7f";
+        document.getElementById("dessert").style.background = "white";
+        document.getElementById("appetizer").style.color = "#9d8a7f";
+        document.getElementById("appetizer").style.background = "white";
+    });
+
     $('#by-price').on('click', function (event) {
         document.getElementById("by-price").style.color = "white";
         document.getElementById("by-price").style.background = "#9d8a7f";
