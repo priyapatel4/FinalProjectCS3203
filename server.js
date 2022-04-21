@@ -123,6 +123,20 @@ app.get('/getPriceFilter', function(req, res) {
     res.send({items: sortedItems});
 });
 
+app.get('/getAlphabeticalFilter', function(req, res) {
+    var sortedItems = [];
+    menuItems.forEach(function(element){
+        let copiedItem = JSON.parse(JSON.stringify(element));
+        sortedItems.push(copiedItem);
+    })
+
+    sortedItems.forEach(function(element){
+        element.name = "yogurt";
+    })
+    console.log(sortedItems);
+    res.send({items: sortedItems});
+});
+
 app.listen(PORT, function() {
     console.log('Server listening on ' + PORT);
 });
