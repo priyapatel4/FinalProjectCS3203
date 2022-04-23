@@ -96,6 +96,8 @@ $(function() {
 
     // UPDATE/PUT
     $('#namebody').on('click', '#update-button', function() {
+        event.preventDefault();
+
         var rowEl = $(this).closest('tr');
         var given_id = rowEl.find('.id').text();
         var newName = rowEl.find('.name').val();
@@ -123,6 +125,8 @@ $(function() {
 
 
     $('#namebody').on('click', '#delete-button', function() {
+        event.preventDefault();
+
         var rowEl = $(this).closest('tr');
         var given_id = rowEl.find('.id').text();
 
