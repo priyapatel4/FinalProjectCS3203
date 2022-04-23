@@ -7,7 +7,7 @@ var fs = require('fs');//sets us the fs for the parsing functions
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
 
-var menuItems = []
+var menuItems = [];
 var idNumber =1;
 
 fs.readFile('menu.json', 'utf8', function readFileCallback(err,data ){
@@ -75,17 +75,18 @@ app.put('/updateItems', function(req, res) {
     var newPrice = req.body.price;
 
 
-  //  var found = false;
+    var found = false;
 
-   console.log(newName);
-   console.log(id);
+ //  console.log(newName);
+  // console.log(id);
 
     menuItems.forEach(function(element) {
-        if (element.id == id) {
+        if (!found && element.id == id) {
            element.name = newName;
             element.description = newDescription;
             element.category = newCategory;
             element.price = newPrice;
+            found = true;
            // console.log(item.item_id);
 
         }
@@ -97,7 +98,7 @@ app.put('/updateItems', function(req, res) {
 
 app.delete('/deleteItems', function(req, res) {
     var id = req.body.id;
-    console.log(id);
+   // console.log(id);
 
     menuItems.forEach(function(element, index){
         if ( element.id == id) {
@@ -144,7 +145,7 @@ app.get('/getPriceFilter', function(req, res) {
 
 
 
-app.get('/getAlphabeticalFilter', function(req, res) {
+app.get('/getAlphabeticalFilterAtoZ', function(req, res) {
     var sortedItems = [];
     var numItems =0;
     menuItems.forEach(function(element){
@@ -160,6 +161,39 @@ app.get('/getAlphabeticalFilter', function(req, res) {
         {
 
             if (sortedItems[j].name > sortedItems[j+1].name)
+            {
+                var temp = sortedItems[j];
+                sortedItems[j] = sortedItems[j + 1];
+                sortedItems[j + 1] = temp;
+
+            }
+        }
+
+    }
+
+    // sortedItems.forEach(function(element){
+    //     element.name = "yogurt";
+    // })
+    console.log(sortedItems);
+    res.send({items: sortedItems});
+});
+
+app.get('/getAlphabeticalFilterZtoA', function(req, res) {
+    var sortedItems = [];
+    var numItems =0;
+    menuItems.forEach(function(element){
+        let copiedItem = JSON.parse(JSON.stringify(element));
+        sortedItems.push(copiedItem);
+        numItems++;
+    })
+
+    var i, j;
+    for (i = 0; i < numItems-1; i++)
+    {
+        for (j = 0; j < numItems-i-1; j++)
+        {
+
+            if (sortedItems[j].name < sortedItems[j+1].name)
             {
                 var temp = sortedItems[j];
                 sortedItems[j] = sortedItems[j + 1];

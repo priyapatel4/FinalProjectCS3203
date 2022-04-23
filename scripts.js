@@ -330,6 +330,7 @@ $(function() {
     });
 
     $('#by-price').on('click', function (event) {
+        $("#namebody").empty();
         document.getElementById("by-price").style.color = "white";
         document.getElementById("by-price").style.background = "#9d8a7f";
         document.getElementById("by-categories").style.color = "#9d8a7f";
@@ -394,14 +395,12 @@ $(function() {
 
 
     $('#by-alphabet').on('click', function (event) {
-        $("#namebody").empty();
         document.getElementById("by-alphabet").style.color = "white";
         document.getElementById("by-alphabet").style.background = "#9d8a7f";
         document.getElementById("by-price").style.color = "#9d8a7f";
         document.getElementById("by-price").style.background = "white";
         document.getElementById("by-categories").style.color = "#9d8a7f";
         document.getElementById("by-categories").style.background = "white";
-        document.getElementById("displayTable").style.display = "";
         document.getElementById("appetizer").style.display = "none";
         document.getElementById("entree").style.display = "none";
         document.getElementById("dessert").style.display = "none";
@@ -411,9 +410,19 @@ $(function() {
         document.getElementById("atoz").style.display = "";
         document.getElementById("ztoa").style.display = "";
 
+    });
+
+    $('#atoz').on('click', function (event) {
+        $("#namebody").empty();
+        document.getElementById("atoz").style.color = "white";
+        document.getElementById("atoz").style.background = "#9d8a7f";
+        document.getElementById("ztoa").style.color = "#9d8a7f";
+        document.getElementById("ztoa").style.background = "white";
+        document.getElementById("displayTable").style.display = "";
+
         $.ajax({
             type:'GET',
-            url: '/getAlphabeticalFilter',// sets up the pathway to the server
+            url: '/getAlphabeticalFilterAtoZ',// sets up the pathway to the server
             contentType: 'application/json',
             success: function(response) {//gets the response form the pathway if successful
 
@@ -439,19 +448,40 @@ $(function() {
         });
     });
 
-    $('#atoz').on('click', function (event) {
-        document.getElementById("atoz").style.color = "white";
-        document.getElementById("atoz").style.background = "#9d8a7f";
-        document.getElementById("ztoa").style.color = "#9d8a7f";
-        document.getElementById("ztoa").style.background = "white";
-        document.getElementById("displayTable").style.display = "";
-    });
-
     $('#ztoa').on('click', function (event) {
+        $("#namebody").empty();
         document.getElementById("ztoa").style.color = "white";
         document.getElementById("ztoa").style.background = "#9d8a7f";
         document.getElementById("atoz").style.color = "#9d8a7f";
         document.getElementById("atoz").style.background = "white";
         document.getElementById("displayTable").style.display = "";
+
+        $.ajax({
+            type:'GET',
+            url: '/getAlphabeticalFilterZtoA',// sets up the pathway to the server
+            contentType: 'application/json',
+            success: function(response) {//gets the response form the pathway if successful
+
+                console.log(response);
+                let tbodyEl = $('#namebody');
+
+                tbodyEl.html('');
+
+
+                response.items.forEach(function(element) {// would output the id, time created, name of the person tweeting and the tweet. also adds an update and delete button to delete or update the tweet
+                    tbodyEl.append('\
+                        <tr>\
+                            <td class="id">' + element.id + '</td>\
+                            <td><input type="text" class="name" value="' + element.name +'"></td>\
+                            <td><input type="text" class="description" value="' + element.description +'"></td>\
+                             <td><input type="text" class="category" value="' + element.category +'"></td>\
+                            \<td><span>$</span><input type="text" class="price" value="' + element.price +'"></td>\
+                        </tr>\
+                    ');
+                });
+            }
+        });
+
+
     });
 });
