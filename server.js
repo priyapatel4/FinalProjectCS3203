@@ -110,7 +110,7 @@ app.delete('/deleteItems', function(req, res) {
 
 });
 
-app.get('/getPriceFilter', function(req, res) {
+app.get('/getPriceFilterLowToHigh', function(req, res) {
     var sortedItems = [];
     var numItems = 0;
     menuItems.forEach(function(element){
@@ -134,9 +134,34 @@ app.get('/getPriceFilter', function(req, res) {
 
     }
 
-    // sortedItems.forEach(function(element){
-    //     element.price = 5;
-    // })
+    console.log(sortedItems);
+    res.send({items: sortedItems});
+});
+
+app.get('/getPriceFilterHighToLow', function(req, res) {
+    var sortedItems = [];
+    var numItems = 0;
+    menuItems.forEach(function(element){
+        let copiedItem = JSON.parse(JSON.stringify(element));
+        sortedItems.push(copiedItem);
+        numItems++;
+    })
+    var i, j;
+    for (i = 0; i < numItems-1; i++)
+    {
+        for (j = 0; j > numItems-i-1; j++)
+        {
+
+            if (sortedItems[j].price > sortedItems[j+1].price)
+            {
+                var temp = sortedItems[j];
+                sortedItems[j] = sortedItems[j + 1];
+                sortedItems[j + 1] = temp;
+            }
+        }
+
+    }
+
     console.log(sortedItems);
     res.send({items: sortedItems});
 });
@@ -171,9 +196,6 @@ app.get('/getAlphabeticalFilterAtoZ', function(req, res) {
 
     }
 
-    // sortedItems.forEach(function(element){
-    //     element.name = "yogurt";
-    // })
     console.log(sortedItems);
     res.send({items: sortedItems});
 });
@@ -204,9 +226,7 @@ app.get('/getAlphabeticalFilterZtoA', function(req, res) {
 
     }
 
-    // sortedItems.forEach(function(element){
-    //     element.name = "yogurt";
-    // })
+
     console.log(sortedItems);
     res.send({items: sortedItems});
 });

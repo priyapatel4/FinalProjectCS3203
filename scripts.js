@@ -330,14 +330,12 @@ $(function() {
     });
 
     $('#by-price').on('click', function (event) {
-        $("#namebody").empty();
         document.getElementById("by-price").style.color = "white";
         document.getElementById("by-price").style.background = "#9d8a7f";
         document.getElementById("by-categories").style.color = "#9d8a7f";
         document.getElementById("by-categories").style.background = "white";
         document.getElementById("by-alphabet").style.color = "#9d8a7f";
         document.getElementById("by-alphabet").style.background = "white";
-        document.getElementById("displayTable").style.display = "";
         document.getElementById("appetizer").style.display = "none";
         document.getElementById("entree").style.display = "none";
         document.getElementById("dessert").style.display = "none";
@@ -347,9 +345,19 @@ $(function() {
         document.getElementById("atoz").style.display = "none";
         document.getElementById("ztoa").style.display = "none";
 
+    });
+
+    $('#lowtohigh').on('click', function (event) {
+        $("#namebody").empty();
+        document.getElementById("lowtohigh").style.color = "white";
+        document.getElementById("lowtohigh").style.background = "#9d8a7f";
+        document.getElementById("hightolow").style.color = "#9d8a7f";
+        document.getElementById("hightolow").style.background = "white";
+        document.getElementById("displayTable").style.display = "";
+
         $.ajax({
             type:'GET',
-            url: '/getPriceFilter',// sets up the pathway to the server
+            url: '/getPriceFilterLowToHigh',// sets up the pathway to the server
             contentType: 'application/json',
             success: function(response) {//gets the response form the pathway if successful
 
@@ -374,23 +382,43 @@ $(function() {
             }
         });
 
-
-    });
-
-    $('#lowtohigh').on('click', function (event) {
-        document.getElementById("lowtohigh").style.color = "white";
-        document.getElementById("lowtohigh").style.background = "#9d8a7f";
-        document.getElementById("hightolow").style.color = "#9d8a7f";
-        document.getElementById("hightolow").style.background = "white";
-        document.getElementById("displayTable").style.display = "";
     });
 
     $('#hightolow').on('click', function (event) {
+        $("#namebody").empty();
         document.getElementById("hightolow").style.color = "white";
         document.getElementById("hightolow").style.background = "#9d8a7f";
         document.getElementById("lowtohigh").style.color = "#9d8a7f";
         document.getElementById("lowtohigh").style.background = "white";
         document.getElementById("displayTable").style.display = "";
+
+        $.ajax({
+            type:'GET',
+            url: '/getPriceFilterHighToLow',// sets up the pathway to the server
+            contentType: 'application/json',
+            success: function(response) {//gets the response form the pathway if successful
+
+                console.log(response);
+                let tbodyEl = $('#namebody');
+
+                tbodyEl.html('');
+
+
+
+                response.items.forEach(function(element) {// would output the id, time created, name of the person tweeting and the tweet. also adds an update and delete button to delete or update the tweet
+                    tbodyEl.append('\
+                        <tr>\
+                            <td class="id">' + element.id + '</td>\
+                            <td><input type="text" class="name" value="' + element.name +'"></td>\
+                            <td><input type="text" class="description" value="' + element.description +'"></td>\
+                             <td><input type="text" class="category" value="' + element.category +'"></td>\
+                            \<td><span>$</span><input type="text" class="price" value="' + element.price +'"></td>\
+                        </tr>\
+                    ');
+                });
+            }
+        });
+
     });
 
 
