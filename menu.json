@@ -1,13 +1,13 @@
 [{
-  "item_id": 1,
-  "item_name": "sandwich",
-  "item_description": "two bread",
-  "item_category": "appetizer",
-  "item_price": "45"
+  "id": 1,
+  "name": "sandwich",
+  "description": "two bread",
+  "category": "appetizer",
+  "price": "45"
 }, {
-  "item_id": 2,
-  "item_name": "ice cream",
-  "item_description": "sweet",
-  "item_category": "dessert",
-  "item_price": "5"
+  "id": 2,
+  "name": "ice cream",
+  "description": "sweet",
+  "category": "dessert",
+  "price": "5"
 }]

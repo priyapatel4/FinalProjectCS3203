@@ -12,16 +12,16 @@ var idNumber =1;
 
 fs.readFile('menu.json', 'utf8', function readFileCallback(err,data ){
     if(err){
-        console.log("not reading file in");
+       // console.log("not reading file in");
       //  throw err;
         // writing new file when we want to add but no json file to add to
-        // fs.writeFile(file, JSON.stringify([obj]), error => console.error(error));
+         fs.writeFile(menu, JSON.stringify([obj]), error => console.error(error));
     }
     else{
         let menuData = JSON.parse(data)
         menuData.forEach(function(element) {
-            menuItems.push({id:element.item_id,name:element.item_name,description:element.item_description,category:element.item_category,
-                price:element.item_price });
+            menuItems.push({id:element.id,name:element.name,description:element.description,category:element.category,
+                price:element.price });
             idNumber++;
         });
         console.log(menuItems);
@@ -55,13 +55,13 @@ app.post('/addNewItem', function(req, res) {
         idNumber++;
 
 
-    // fs.writeFile('./menu.json', JSON.stringify(menuItems, null, 2), err => {
-    //     if(err){
-    //         console.log(err);
-    //     }else{
-    //         console.log('File successfully written');
-    //     }
-    // })
+    fs.writeFile('./menu.json', JSON.stringify(menuItems, null, 2), err => {
+        if(err){
+            console.log(err);
+        }else{
+            console.log('File successfully written');
+        }
+    })
     res.send('created');
 
 });
