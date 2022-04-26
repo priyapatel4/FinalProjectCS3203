@@ -15,7 +15,7 @@ fs.readFile('menu.json', 'utf8', function readFileCallback(err,data ){
        // console.log("not reading file in");
       //  throw err;
         // writing new file when we want to add but no json file to add to
-         fs.writeFile(menu, JSON.stringify([obj]), error => console.error(error));
+        // fs.writeFile(menu, JSON.stringify([obj]), error => console.error(error));
     }
     else{
         let menuData = JSON.parse(data)
