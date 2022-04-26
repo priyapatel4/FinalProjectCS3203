@@ -91,6 +91,13 @@ app.put('/updateItems', function(req, res) {
 
         }
     });
+    fs.writeFile('./menu.json', JSON.stringify(menuItems, null, 2), err => {
+        if(err){
+            console.log(err);
+        }else{
+            console.log('File successfully written');
+        }
+    })
 
     res.send('Succesfully updated product!');
 });
@@ -107,6 +114,13 @@ app.delete('/deleteItems', function(req, res) {
 
     });
     res.send('Successfully deleted product');
+    fs.writeFile('./menu.json', JSON.stringify(menuItems, null, 2), err => {
+        if(err){
+            console.log(err);
+        }else{
+            console.log('File successfully written');
+        }
+    })
 
 });
 
