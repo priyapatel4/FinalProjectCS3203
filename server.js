@@ -10,12 +10,10 @@ app.use(bodyParser.json());
 var menuItems = [];
 var idNumber =1;
 
+// reads in data if there is any data to read in from the json file keeping track of all the items
 fs.readFile('menu.json', 'utf8', function readFileCallback(err,data ){
     if(err){
-       // console.log("not reading file in");
-      //  throw err;
-        // writing new file when we want to add but no json file to add to
-        // fs.writeFile(menu, JSON.stringify([obj]), error => console.error(error));
+        console.log("not reading file in or no file to read in");
     }
     else{
         let menuData = JSON.parse(data)
@@ -31,12 +29,13 @@ fs.readFile('menu.json', 'utf8', function readFileCallback(err,data ){
 
 
 
-//This function is the Get Function to be used to get the information when requested. (never got this working)
+//This function is used to display menu items currently being stored
 app.get('/getinfo', function(req, res) {
  res.send({items: menuItems});
 });
 
-//Posts created tweets
+
+//adds new item entered in by the user to both the array and json file
 app.post('/addNewItem', function(req, res) {
     var newItemName = req.body.name_input;
     var newItemDescription = req.body.description_input;
@@ -77,9 +76,6 @@ app.put('/updateItems', function(req, res) {
 
     var found = false;
 
- //  console.log(newName);
-  // console.log(id);
-
     menuItems.forEach(function(element) {
         if (!found && element.id == id) {
            element.name = newName;
@@ -87,7 +83,6 @@ app.put('/updateItems', function(req, res) {
             element.category = newCategory;
             element.price = newPrice;
             found = true;
-           // console.log(item.item_id);
 
         }
     });
@@ -127,6 +122,11 @@ app.delete('/deleteItems', function(req, res) {
 app.get('/getPriceFilterLowToHigh', function(req, res) {
     var sortedItems = [];
     var numItems = 0;
+
+    /* creates a deep copy of the array of objects so that changes from our sorted menu will
+     * not be reflected in the original array, this way the original array will remain unchanged
+     * by this task
+     */
     menuItems.forEach(function(element){
         let copiedItem = JSON.parse(JSON.stringify(element));
         sortedItems.push(copiedItem);
@@ -155,6 +155,11 @@ app.get('/getPriceFilterLowToHigh', function(req, res) {
 app.get('/getPriceFilterHighToLow', function(req, res) {
     var sortedItems = [];
     var numItems = 0;
+
+    /* creates a deep copy of the array of objects so that changes from our sorted menu will
+    // not be reflected in the original array, this way the orginial array will remain unchanged
+    // by this task
+     */
     menuItems.forEach(function(element){
         let copiedItem = JSON.parse(JSON.stringify(element));
         sortedItems.push(copiedItem);
@@ -187,6 +192,11 @@ app.get('/getPriceFilterHighToLow', function(req, res) {
 app.get('/getAlphabeticalFilterAtoZ', function(req, res) {
     var sortedItems = [];
     var numItems =0;
+
+    /* creates a deep copy of the array of objects so that changes from our sorted menu will
+    * not be reflected in the original array, this way the original array will remain unchanged
+    * by this task
+    */
     menuItems.forEach(function(element){
         let copiedItem = JSON.parse(JSON.stringify(element));
         sortedItems.push(copiedItem);
@@ -217,6 +227,11 @@ app.get('/getAlphabeticalFilterAtoZ', function(req, res) {
 app.get('/getAlphabeticalFilterZtoA', function(req, res) {
     var sortedItems = [];
     var numItems =0;
+
+    /* creates a deep copy of the array of objects so that changes from our sorted menu will
+    * not be reflected in the original array, this way the original array will remain unchanged
+    * by this task
+    */
     menuItems.forEach(function(element){
         let copiedItem = JSON.parse(JSON.stringify(element));
         sortedItems.push(copiedItem);
@@ -259,6 +274,11 @@ app.get('/getAppetizerFilter', function(req, res) {
 });
 app.get('/getDrinkFilter', function(req, res) {
     var sortedItems = [];
+
+    /* creates a deep copy of the array of objects so that changes from our sorted menu will
+    * not be reflected in the original array, this way the original array will remain unchanged
+    * by this task
+    */
     menuItems.forEach(function(element){
         if (element.category == "drink")
         {
@@ -271,6 +291,11 @@ app.get('/getDrinkFilter', function(req, res) {
 });
 app.get('/getEntreeFilter', function(req, res) {
     var sortedItems = [];
+
+    /* creates a deep copy of the array of objects so that changes from our sorted menu will
+    * not be reflected in the original array, this way the original array will remain unchanged
+    * by this task
+    */
     menuItems.forEach(function(element){
         if (element.category == "entree")
         {
@@ -281,8 +306,14 @@ app.get('/getEntreeFilter', function(req, res) {
     console.log(sortedItems);
     res.send({items: sortedItems});
 });
+
 app.get('/getDessertFilter', function(req, res) {
     var sortedItems = [];
+
+    /* creates a deep copy of the array of objects so that changes from our sorted menu will
+    * not be reflected in the original array, this way the original array will remain unchanged
+    * by this task
+    */
     menuItems.forEach(function(element){
         if (element.category == "dessert")
         {
