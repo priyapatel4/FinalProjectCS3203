@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "cheese pizza",
+    "description": "mozzarella cheese and tomato sauce on thin crust",
+    "category": "entree",
+    "price": "8.95"
+  },
+  {
+    "id": 2,
+    "name": "lemonade",
+    "description": "refreshing lemon beverage",
+    "category": "drink",
+    "price": "4.55"
+  },
+  {
+    "id": 3,
+    "name": "strawberry ice cream",
+    "description": "cold dessert with fresh strawberries",
+    "category": "dessert",
+    "price": "3.45"
+  },
+  {
+    "id": 4,
+    "name": "breadsticks",
+    "description": "coated in garlic and butter",
+    "category": "appetizer",
+    "price": "6.00"
+  },
+  {
+    "id": 5,
+    "name": "soda",
+    "description": "your choice of coke or sprite",
+    "category": "drink",
+    "price": "2.75"
+  },
+  {
+    "id": 6,
+    "name": "spaghetti",
+    "description": "saucy spaghetti noddles with meatballs",
+    "category": "entree",
+    "price": "8.99"
+  },
+  {
+    "id": 7,
+    "name": "pecan pie",
+    "description": "with caramel and crunchy pecans",
+    "category": "dessert",
+    "price": "4.00"
+  },
+  {
+    "id": 8,
+    "name": "caeser salad",
+    "description": "lettuce, tomatoes, shredded cheese, croutons, shredded carrots, onion",
+    "category": "appetizer",
+    "price": "5.00"
+  },
+  {
+    "id": 9,
+    "name": "chicken alfredo pasta",
+    "description": "creamy and cheesy pasta with chicken breasts",
+    "category": "entree",
+    "price": "10.50"
+  },
+  {
+    "id": 10,
+    "name": "fresh fruit",
+    "description": "strawberries, melon, and apples",
+    "category": "appetizer",
+    "price": "4.75"
+  }
+]

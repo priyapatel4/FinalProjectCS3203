@@ -146,7 +146,7 @@ app.get('/getPriceFilterLowToHigh', function (req, res) {
     for (outer = 0; outer < numItems - 1; outer++) {
         for (inner = 0; inner < numItems - outer - 1; inner++) {
 
-            if (parseInt(sortedItems[inner].price) > parseInt(sortedItems[inner + 1].price)) {
+            if (parseFloat(sortedItems[inner].price) > parseFloat(sortedItems[inner + 1].price)) {
                 var temp = sortedItems[inner];
                 sortedItems[inner] = sortedItems[inner + 1];
                 sortedItems[inner + 1] = temp;
@@ -177,7 +177,7 @@ app.get('/getPriceFilterHighToLow', function (req, res) {
     for (outer = 0; outer < numItems - 1; outer++) {
         for (inner = 0; inner < numItems - outer - 1; inner++) {
 
-            if (parseInt(sortedItems[inner].price) < parseInt(sortedItems[inner + 1].price)) {
+            if (parseFloat(sortedItems[inner].price) < parseFloat(sortedItems[inner + 1].price)) {
                 var temp = sortedItems[inner];
                 sortedItems[inner] = sortedItems[inner + 1];
                 sortedItems[inner + 1] = temp;
