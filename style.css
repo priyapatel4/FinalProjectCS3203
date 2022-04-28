@@ -12,6 +12,15 @@ body.home {
     background-position: center top !important;
 }
 
+.name {
+    padding-top: 280px;
+    text-align: center;
+    color: #9d8a7f;
+    font-size: 70px;
+    font-style: oblique;
+    text-shadow: 5px 5px 8px #ffff;
+}
+
 .menu-bar {
     background: #9d8a7f;
     text-align: center;
