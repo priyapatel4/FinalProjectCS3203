@@ -6,106 +6,112 @@
     <link rel="stylesheet" href="style.css">
     <script src="jquery.js"></script>
     <script src="scripts.js"></script>
-    <script src="main.js"></script>
     <script src="jquery.js"></script>
 </head>
 
 <body class="owner">
-<div class="menu-bar">
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li class="active"><a href="owner.html">Owner</a></li>
-    </ul>
-</div>
+    <!--link home page and about page, activate the owner page-->
+    <div class="menu-bar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li class="active"><a href="owner.html">Owner</a></li>
+        </ul>
+    </div>
 
-<div class="option-button">
-    <!--        <button id="get-button">Show Menu</button>-->
-    <button class="button" id="get-button">Show Menu</button>
-    <button class="button" id="addButton">Add New Item</button>
-    <button class="button" id="filter-button">Filter Menu</button>
-</div>
+    <!--buttons for show, add new item, and filter options-->
+    <div class="option-button">
+        <button class="button" id="get-button">Show Menu</button>
+        <button class="button" id="addButton">Add New Item</button>
+        <button class="button" id="filter-button">Filter Menu</button>
+    </div>
 
-<div style="overflow-x:auto;">
-    <table id="displayTable" style="display:none">
-        <tr>
-            <th>No.</th>
-            <th>Item Name</th>
-            <th>Description</th>
-            <th>Category</th>
-            <th>Price</th>
-        </tr>
-        <tbody id="namebody"></tbody>
-    </table>
-</div>
+    <!--set up the displayed table-->
+    <div style="overflow-x:auto;">
+        <table id="displayTable" style="display:none">
+            <tr>
+                <th>No.</th>
+                <th>Item Name</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Price</th>
+            </tr>
+            <tbody id="namebody"></tbody>
+        </table>
+    </div>
 
-<div class="input-box">
-    <form id="input-box" style="display:none">
-        <div class="row">
-            <div class="col-25">
-                <label for="name">Item Name</label>
+    <!--input box for adding a new item-->
+    <div class="input-box">
+        <form id="input-box" style="display:none">
+            <div class="row">
+                <div class="col-25">
+                    <label for!="name">Item Name</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="name" name="item_name">
+                </div>
             </div>
-            <div class="col-75">
-                <input type="text" id="name" name="item_name">
+            <div class="row">
+                <div class="col-25">
+                    <label for="description">Description</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="description" name="description">
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-25">
-                <label for="description">Description</label>
+            <div class="row">
+                <div class="col-25">
+                    <label for="category">Category</label>
+                </div>
+                <div class="col-75">
+                    <select id="category" name="category">
+                        <option value="appetizer">Appetizer</option>
+                        <option value="entree">Entree</option>
+                        <option value="dessert">Dessert</option>
+                        <option value="drink">Drink</option>
+                    </select>
+                </div>
             </div>
-            <div class="col-75">
-                <input type="text" id="description" name="description">
+            <div class="row">
+                <div class="col-25">
+                    <label for="price">Price</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="price" name="price">
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-25">
-                <label for="category">Category</label>
+            <br>
+            <div class="row">
+                <input type="submit" id="saveButton" value="SAVE">
             </div>
-            <div class="col-75">
-                <select id="category" name="category">
-                    <option value="appetizer">Appetizer</option>
-                    <option value="entree">Entree</option>
-                    <option value="dessert">Dessert</option>
-                    <option value="drink">Drink</option>
-                </select>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-25">
-                <label for="price">Price</label>
-            </div>
-            <div class="col-75">
-                <input type="text" id="price" name="price">
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <input type="submit" id="saveButton" value="SAVE">
-        </div>
-    </form>
-</div>
+        </form>
+    </div>
 
-<div class="filter-options">
-    <button class="small-button" id="by-categories" style="display:none">Filter By Categories</button>
-    <button class="small-button" id="by-price" style="display:none">Filter By Price</button>
-    <button class="small-button" id="by-alphabet" style="display:none">Filter By Alphabetical Order</button>
-</div>
+    <!--buttons for filter by categories, price, and alphabet options-->
+    <div class="filter-options">
+        <button class="small-button" id="by-categories" style="display:none">Filter By Categories</button>
+        <button class="small-button" id="by-price" style="display:none">Filter By Price</button>
+        <button class="small-button" id="by-alphabet" style="display:none">Filter By Alphabetical Order</button>
+    </div>
 
-<div class="categories">
-    <button class="small-button2" id="appetizer" style="display:none">Appetizer</button>
-    <button class="small-button2" id="entree" style="display:none">Entree</button>
-    <button class="small-button2" id="dessert" style="display:none">Dessert</button>
-    <button class="small-button2" id="drink" style="display:none">Drink</button>
-</div>
+    <!--buttons for filter by categories options-->
+    <div class="categories">
+        <button class="small-button2" id="appetizer" style="display:none">Appetizer</button>
+        <button class="small-button2" id="entree" style="display:none">Entree</button>
+        <button class="small-button2" id="dessert" style="display:none">Dessert</button>
+        <button class="small-button2" id="drink" style="display:none">Drink</button>
+    </div>
 
-<div class="price-order">
-    <button class="small-button2" id="lowtohigh" style="display:none">Low To High</button>
-    <button class="small-button2" id="hightolow" style="display:none">High To Low</button>
-</div>
+    <!--buttons for filter by price order options-->
+    <div class="price-order">
+        <button class="small-button2" id="lowtohigh" style="display:none">Low To High</button>
+        <button class="small-button2" id="hightolow" style="display:none">High To Low</button>
+    </div>
 
-<div class="alphabet-order">
-    <button class="small-button2" id="atoz" style="display:none">A To Z</button>
-    <button class="small-button2" id="ztoa" style="display:none">Z To A</button>
-</div>
+    <!--button for filter by alphabetical order options-->
+    <div class="alphabet-order">
+        <button class="small-button2" id="atoz" style="display:none">A To Z</button>
+        <button class="small-button2" id="ztoa" style="display:none">Z To A</button>
+    </div>
 </body>
 </html>
